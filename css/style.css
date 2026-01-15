@@ -1575,3 +1575,239 @@ footer {
     margin-bottom: 1rem;
     display: block;
 }
+
+ /* result box hiding in the track form */
+/* Fade in/out for result box */
+#resultBox {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none; /* disable interactions when hidden */
+}
+
+#resultBox.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* enable interactions when visible */
+}
+
+#resultBox.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+}
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem; /* adjust padding for small screens */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        height: calc(100% - 70px);
+        width: 200px;
+        flex-direction: column;
+        background: var(--dark-color);
+        gap: 1.5rem;
+        padding: 1rem;
+        transition: right 0.3s ease;
+        display: flex; /* make sure flex is enabled */
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .mobile-menu {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 28px;  /* smaller on phone */
+    }
+
+    .hero p {
+        font-size: 16px;  /* smaller on phone */
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+}
+@media (max-width: 768px) {
+    .about-container,
+    .contact-container,
+    .services-grid,
+    .stats-container,
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* single column */
+        gap: 1.5rem;                /* reduce gaps */
+    }
+
+    .display-stats {
+        justify-content: space-around;
+        gap: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .hero-overlay {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .hero-overlay h1 {
+        font-size: 28px;
+    }
+
+    .hero-overlay p {
+        font-size: 16px;
+    }
+}
+@media (max-width: 768px) {
+    .contact-form,
+    .secure-contact-form {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .secure-form-group input,
+    .secure-form-group textarea {
+        font-size: 0.95rem;
+    }
+}
+@media (max-width: 768px) {
+    .btn,
+    .cta-buttons a,
+    .secure-submit-btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem 0;
+        font-size: 0.95rem;
+    }
+}
+@media (max-width: 768px) {
+    .service-image img,
+    .about-image,
+    .logos-container img,
+    .about-image-grid img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+@media (max-width: 768px) {
+    .service-image img,
+    .about-image,
+    .logos-container img,
+    .about-image-grid img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* single column */
+        gap: 1.5rem;
+    }
+
+    .social-links {
+        justify-content: flex-start;
+    }
+}
+
+/* ================= HEADER ================= */
+header {
+    background: var(--dark-color);
+    padding: 15px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Nav container */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; /* below header */
+        right: 0;
+        background: #111827;
+        flex-direction: column;
+        width: 200px;
+        padding: 10px;
+        border-radius: 0 0 8px 8px;
+        min-height: 180px;
+
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+/* Mobile nav dropdown styling */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;               /* below header */
+        right: 10px;             /* some margin from the right */
+        width: 220px;            /* fixed width for card */
+        flex-direction: column;
+        background: rgba(11, 11, 11, 0.95); /* solid black with slight transparency */
+        border-radius: 12px;
+        padding: 1rem 1.2rem;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        z-index: 2000;
+    }
+
+    .nav-links a {
+        color: var(--white);
+        font-weight: 500;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        transition: background 0.3s;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a:hover {
+        background: rgba(255,255,255,0.1);
+        border-radius: 6px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 5px;
+        z-index: 3000; /* ensure it stays above the nav card */
+    }
+}
